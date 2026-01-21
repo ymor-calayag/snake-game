@@ -18,12 +18,18 @@ for _ in range(3):
     x_pos -= 20
     segments.append(snake_segments)
 
+ # [0, -20, -40]
 game_over = False
 while not game_over:
     screen.update()
     time.sleep(0.1)
-    for segment in segments:
-        segment.fd(10)
+    for segment in range(len(segments) - 1, 0, -1):
+        new_x = segments[segment - 1].xcor()
+        new_y = segments[segment - 1].ycor()
+        segments[segment].goto(new_x, new_y)
+    segments[0].fd(10)
+    segments[0].lt(90)
+        
         
 
 screen.exitonclick()
