@@ -10,9 +10,16 @@ screen.tracer(0)
 
 snake = Snake()
 
+screen.listen()
+screen.onkey(snake.snake_up, "Up")
+# screen.onkey(snake.snake_down, "Down")
+screen.onkey(snake.snake_left, "Left")
+screen.onkey(snake.snake_right, "Right")
+
  # [0, -20, -40]
 game_over = False
 while not game_over:
+    # screen updates every 0.1 second
     screen.update()
     time.sleep(0.1)
 
