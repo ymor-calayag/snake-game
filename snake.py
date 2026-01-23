@@ -23,14 +23,20 @@ class Snake:
             self.segments[segment].goto(new_x, new_y)
         self.segments[0].fd(self.move_distance)
     
+    # The if statement prevents the snake 
+    # from reversing direction (180-degree turn)
     def snake_up(self):
-        self.segments[0].setheading(90) # north
+        if self.segments[0].heading() != 270:
+            self.segments[0].setheading(90) # north
 
     def snake_down(self):
-        self.segments[0].setheading(270) # south
+        if self.segments[0].heading() != 90:
+            self.segments[0].setheading(270) # south
 
     def snake_left(self):
-        self.segments[0].setheading(180) # west
+        if self.segments[0].heading() != 0:
+            self.segments[0].setheading(180) # west
 
     def snake_right(self):
-        self.segments[0].setheading(0) # east
+        if self.segments[0].heading() != 180:
+            self.segments[0].setheading(0) # east
