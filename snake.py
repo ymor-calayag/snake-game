@@ -17,6 +17,13 @@ class Snake:
             x_pos -= 20
             self.segments.append(snake_segments)
     
+    def add_snake_segment(self):
+            snake_segments = Turtle("square")
+            snake_segments.up()
+            snake_segments.color("white")
+            snake_segments.goto(self.segments[-1].position())
+            self.segments.append(snake_segments)
+    
     def move(self):
         for segment in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[segment - 1].xcor()
